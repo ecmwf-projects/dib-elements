@@ -6,11 +6,6 @@ This element installs the fail2ban additional binary from the upstream repositor
 In the case of rocky linux, fail2ban lives in epel so the 'epel' element must also be included
 
 In addition, a compulsory jail.local is expected, localy on the build system, to be insterted in the final image
-=======
-This element installs the fail2ban additional binary from the upstream repositories 
-in the case of rocky linux, fail2ban lives in epel so the 'epel' element must also be included
-
-In additiona, a compulsory jail.local is expected on the build system to be insterted in the final image
 
 Environment Variables
 ---------------------
