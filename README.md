@@ -12,7 +12,8 @@ on a centos stream 8 builder
 This repository provides the following DIB elements:
 
 * ``fail2ban`` Installs fail2ban on the distro and inserts a custom fail2ban.conf file during creation
-* ``locales``: Installs aditional locales when needed .
+* ``locales``: Installs aditional locales when needed.
+* ``centos-install-extra``: Additional binaries are required by users in EWC. (OBSOLETE)
 * ``autoupdates``: Enables autoupdates from security repos for the images.
 * ``prometheus-exporter``: Enables installation of the prometheus exporter from the Binaries built locally at ECMWF and hosted on nexus
 * ``removebogusdns``: Removes the bogus DNS entry that is found in upstream rocky builds
