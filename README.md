@@ -1,6 +1,7 @@
-====================
+
+=======================
 ECMWF Image Elements
-====================
+=======================
 
 This repository provides OpenStack `Diskimage Builder (DIB)
 <https://github.com/openstack/diskimage-builder>`_ elements for the images build at ECMWF infrastructure
