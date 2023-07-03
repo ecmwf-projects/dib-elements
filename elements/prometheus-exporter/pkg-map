@@ -1,0 +1,12 @@
+{
+  "family":{
+    "debian":{
+      "node_exporter": "node-exporter"
+    }
+  },
+  "default":{
+      "node_exporter": "node_exporter"
+  }
+}
+
+
