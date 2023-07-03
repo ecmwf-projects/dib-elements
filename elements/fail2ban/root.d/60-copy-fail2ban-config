@@ -1,0 +1,14 @@
+#!/bin/bash
+ 
+if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+ 
+if [[ -n ${DIB_FAIL2BAN_CONF:-} ]]; then
+   
+    sudo mkdir $TARGET_ROOT/etc/fail2ban
+    sudo cp ${DIB_FAIL2BAN_CONF} $TARGET_ROOT/etc/fail2ban/jail.local
+   
+fi
