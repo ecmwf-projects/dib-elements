@@ -1,0 +1,12 @@
+network-scripts:
+  phase: install.d
+s3cmd:
+rsyslog:
+passwd:
+ncurses:
+NetworkManager:
+  uninstall: True
+chrony:
+dnf-automatic:
+langpacks-en: 
+glibc-all-langpacks:

@@ -17,3 +17,4 @@ This repository provides the following DIB elements:
 * ``autoupdates``: Enables autoupdates from security repos for the images.
 * ``prometheus-exporter``: Enables installation of the prometheus exporter from the Binaries built locally at ECMWF and hosted on nexus
 * ``removebogusdns``: Removes the bogus DNS entry that is found in upstream rocky builds
+* ``rocky-install-extra``: Enables installation of additional binaries on rocky distributions, as requested by ECMWF users
