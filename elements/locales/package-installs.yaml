@@ -1,0 +1,4 @@
+glibc-all-langpacks:
+  phase: install.d
+langpacks-en:
+  phase: install.d
