@@ -1,0 +1,4 @@
+s3cmd:
+chrony:
+fail2ban:
+  phase: install.d
