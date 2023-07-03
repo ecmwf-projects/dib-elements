@@ -1,0 +1,10 @@
+network-scripts:
+  phase: install.d
+s3cmd:
+ECMWF-binaries-EWC:
+NetworkManager:
+  uninstall: True
+chrony:
+dnf-automatic:
+langpacks-en: 
+glibc-all-langpacks:
