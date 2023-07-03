@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+case "$DIB_INIT_SYSTEM" in
+    systemd)
+        if [[ $DISTRO_NAME =~ (ubuntu|rocky|debian)$ ]]; then
+            systemctl enable fail2ban.service
+        else
+            systemctl enable fail2ban.service
+            # iptables -A IN_public -j ACCEPT
+        fi
+        ;;
+    *)
+        echo "Unsupported init system $DIB_INIT_SYSTEM"
+        exit 1
+        ;;
+esac
+
+if [ -z "${DIB_FAIL2BAN_CONF:-}" ] ; then
+    echo "DIB_FAIL2BAN_CONF is not set - no fail2ban config can be found"
+    exit 0
+fi
+
+
+for file in $DIB_FAIL2BAN_CONF; do
+    if [ -f $file ]; then
+        echo "$file is not a valid fail2ban file"
+        echo "We need a proper file DIB_FAIL2BAN.CONF"
+    fi
+
+done
+
