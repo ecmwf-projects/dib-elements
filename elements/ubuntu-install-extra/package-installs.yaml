@@ -2,4 +2,3 @@ s3cmd:
 chrony:
 fail2ban:
   phase: install.d
-ecmwf-binaries-ewc-1.2:

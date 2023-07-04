@@ -39,12 +39,9 @@ if [ -z "${DIB_FAIL2BAN_CONF:-}" ] ; then
     exit 0
 fi
 
-
 for file in $DIB_FAIL2BAN_CONF; do
     if [ -f $file ]; then
         echo "$file is not a valid fail2ban file"
         echo "We need a proper file DIB_FAIL2BAN.CONF"
     fi
-
 done
-
