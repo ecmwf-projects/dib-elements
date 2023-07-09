@@ -1,0 +1,4 @@
+network-scripts:
+  phase: install.d
+chkconfig:
+  phase: install.d

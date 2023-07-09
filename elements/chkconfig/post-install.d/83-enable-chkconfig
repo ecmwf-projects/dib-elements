@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+case "$DIB_INIT_SYSTEM" in
+    systemd)
+        if [[ $DISTRO_NAME = "ubuntu" || $DISTRO_NAME = "debian" ]]; then
+            true  
+        elif [[ $DISTRO_NAME = "rocky" || $DISTRO_NAME = "centos" ]]; then
+            /usr/sbin/chkconfig network on  
+        fi
+        ;;
+esac
