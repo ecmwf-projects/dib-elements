@@ -1,11 +1,9 @@
 
 # ECMWF Image Elements
 
-This repository provides OpenStack `Diskimage Builder (DIB)
-<https://github.com/openstack/diskimage-builder>` elements for the images build at ECMWF infrastructure
+This repository provides OpenStack `Diskimage Builder (DIB)  <https://github.com/openstack/diskimage-builder>` elements for the images build at ECMWF infrastructure for EWC.
 
-The list has been tested using python 3.6.8 and DIB 3.19.1 
-on a centos stream 8 builder
+The list has been tested using python 3.6.8, DIB 3.19.1 on a centos stream 8 builder to build centos7,centos8-stream/ubuntu/debian/rocky images.
 
 ## Elements
 
