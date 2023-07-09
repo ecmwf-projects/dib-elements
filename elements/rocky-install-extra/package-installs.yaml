@@ -4,5 +4,3 @@ passwd:
 ncurses:
 chrony:
 dnf-automatic:
-langpacks-en: 
-glibc-all-langpacks:
