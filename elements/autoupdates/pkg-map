@@ -1,0 +1,10 @@
+{
+  "family": {
+    "debian": {
+      "autoupdater": "unattended-upgrades"
+        },
+    }
+  "default": {
+    "autoupdater": "dnf-automatic"
+        }
+}
