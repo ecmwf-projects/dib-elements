@@ -8,7 +8,13 @@ Environment Variables
 ---------------------
 
 DIB_APT_UPDATES_CONF
-   :Required: Yes 
+   :Required: Yes for the Debian Family
    :Default: None
-   :Description: The location of a default 50unattended-upgrades file on the builder Filesystem which will be injected into the image
+   :Description: The location of a custom 50unattended-upgrades file on the builder which will be injected into the image
    :Example: ``DIB_APT_UPDATES_CONF=/home/50unattended-upgrades``
+
+DIB_ROCKY_UPDATES_CONF
+   :Required: Yes for the Redhat Family
+   :Default: None
+   :Description: The location of a custom automatic.conf file on the builder which will be injected into the image
+   :Example: ``DIB_ROCKY_UPDATES_CONF=/home/automatic.conf``

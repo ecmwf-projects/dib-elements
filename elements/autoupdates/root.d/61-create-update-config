@@ -21,12 +21,6 @@ fi
 set -eu
 set -o pipefail 
 
-if [[ -n ${DIB_YUM_CRON_CONF:-} ]]; then
-   
-    sudo cp ${DIB_YUM_CRON_CONF} $TARGET_ROOT/etc/yum/yum-cron.conf
-   
-fi
-
 if [[ -n ${DIB_APT_UPDATES_CONF:-} ]]; then
 
     sudo cp ${DIB_APT_UPDATES_CONF} $TARGET_ROOT/etc/apt/apt.conf.d/50unattended-upgrades
@@ -34,5 +28,7 @@ if [[ -n ${DIB_APT_UPDATES_CONF:-} ]]; then
 fi
 
 if [[ -n ${DIB_ROCKY_UPDATES_CONF:-} ]]; then
-    sudo cp ${DIB_ROCKY_UPDATES_CONF} $TARGET_ROOT/etc/dnf/automatic.conf
+
+    	sudo cp ${DIB_ROCKY_UPDATES_CONF} $TARGET_ROOT/etc/dnf/automatic.conf
+
 fi
