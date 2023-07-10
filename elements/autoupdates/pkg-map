@@ -4,7 +4,7 @@
       "autoupdater": "unattended-upgrades"
     }
   },
-  "redhat": {
+  "default": {
     "autoupdater": "dnf-automatic"
   }
 }
