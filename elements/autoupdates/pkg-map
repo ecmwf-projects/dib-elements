@@ -2,9 +2,9 @@
   "family": {
     "debian": {
       "autoupdater": "unattended-upgrades"
-        },
     }
-  "default": {
+  },
+  "redhat": {
     "autoupdater": "dnf-automatic"
-        }
+  }
 }
