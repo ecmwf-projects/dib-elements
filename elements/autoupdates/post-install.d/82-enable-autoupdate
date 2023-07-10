@@ -28,7 +28,7 @@ case "$DIB_INIT_SYSTEM" in
         elif [[ $DISTRO_NAME =~ (centos|rocky)$ ]]; then
             systemctl enable dnf-automatic.timer
         else
-            systemctl enable yum-cron.service
+            echo "unsuported distro for automatic updates"
+	    exit 1
         fi
-        ;;        
 esac
