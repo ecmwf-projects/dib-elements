@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cp /etc/apt/sources.list /etc/apt/sources.list.bak
-echo "deb [ trusted=yes ] $ECMWF_REPO_URL bullseye main" | sudo tee -a /etc/apt/sources.list

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (c) 2020 Matthew Thode (mthode@mthode.org)
+# Copyright (c) 2023 ECMWF 
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,14 +15,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# dib-lint: disable=safe_sudo
-
-if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
     set -x
 fi
 set -eu
 set -o pipefail
-
-if [ -n "${DIB_ADD_APT_KEYS}" ]; then
-    sudo mkdir -p "${TARGET_ROOT}/etc/apt/trusted.gpg.d/" ;
-fi
+ 
+sed -i '/nameserver 192.168.122.1/d' /etc/resolv.conf.ORIG 
