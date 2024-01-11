@@ -3,5 +3,5 @@ rsyslog:
 passwd:
 ncurses:
 chrony:
-libxrypt-compat:
-libxrypt:
+libxcrypt-compat:
+libxcrypt:
