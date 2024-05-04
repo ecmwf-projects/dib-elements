@@ -1,2 +1,0 @@
-fail2ban:
-  phase: install.d
