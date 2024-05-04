@@ -9,7 +9,6 @@ The list has been tested using python 3.6.8, DIB 3.19.1 on a centos stream 8 bui
 
 This repository provides the following DIB elements:
 
-* ``fail2ban``: Installs fail2ban on the distro and inserts a custom fail2ban.conf file during creation.
 * ``locales``: Installs aditional locales when needed in rocky and centos.
 * ``autoupdates``: Enables autoupdates from security repos for the images.
 * ``prometheus-exporter``: Enables installation of the prometheus exporter from the binaries built locally at ECMWF and hosted on nexus.
