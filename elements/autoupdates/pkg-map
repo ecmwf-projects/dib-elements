@@ -1,16 +1,16 @@
 {
     "family":{
         "redhat": {
-            "autoupdater": "dnf-automatic"
+            "autoupdates": "dnf-automatic"
         },
         "debian":{
-            "autoupdater": "unattended-upgrades"
+            "autoupdates": "unattended-upgrades"
         },
         "suse": {
-            "autoupdater": ""
+            "autoupdates": ""
         },
         "gentoo": {
-            "autoupdater": ""
+            "autoupdates": ""
         }
     }
 }
