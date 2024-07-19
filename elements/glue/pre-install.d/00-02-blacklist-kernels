@@ -22,4 +22,4 @@ set -eu
 set -o pipefail 
 
 sudo bash -c 'echo "exclude=kernel*427*">> /etc/dnf/dnf.conf'
-
+sudo dnf clean all
