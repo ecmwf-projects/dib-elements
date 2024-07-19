@@ -23,4 +23,4 @@ set -o pipefail
 
 sudo rpm -e --nodeps kernel-tools-5.14.0-427.20.1.el9_4 kernel-tools-libs-5.14.0-427.20.1.el9_4.x86_64 kernel-modules-core-5.14.0-427.20.1.el9_4.x86_64 kernel-core-5.14.0-427.20.1.el9_4.x86_64 kernel-modules-5.14.0-427.20.1.el9_4.x86_64 kernel-5.14.0-427.20.1.el9_4.x86_64
 
-sudo dnf reinstall kernel
+sudo dnf reinstall -y kernel
