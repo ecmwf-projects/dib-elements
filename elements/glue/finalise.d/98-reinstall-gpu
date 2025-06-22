@@ -21,7 +21,28 @@ fi
 set -eu
 set -o pipefail 
 
-sudo dnf reinstall -y kernel 
-echo "chko1"
-pwd
-dnf reinstall -y /opt/nvidia/*rpm
+echo "chkodebug2"
+
+cat << 'EOF' > /etc/systemd/system/ecmwf-gpus.service
+[Unit]
+Description=ECMWF GPU Package Reinstallation After SSHD
+After=sshd.service
+Requires=sshd.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/usr/bin/dnf reinstall -y /opt/nvidia/nvidia-linux-grid-570-570.124.06-1.x86_64.rpm | logger -t ecmwf-gpus'
+ExecStartPost=/bin/systemctl disable ecmwf-gpus.service
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+ls -alh /etc/systemd/system/
+
+chown root:root /etc/systemd/system/ecmwf-gpus.service
+chmod 644 /etc/systemd/system/ecmwf-gpus.service
+
+systemctl daemon-reload
+systemctl enable /etc/systemd/system/ecmwf-gpus.service
