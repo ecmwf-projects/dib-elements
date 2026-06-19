@@ -31,7 +31,7 @@ Requires=sshd.service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c '/usr/bin/dnf reinstall -y /opt/nvidia/nvidia-linux-grid-570-570.124.06-1.x86_64.rpm | logger -t ecmwf-gpus'
+ExecStart=/bin/bash -c '/usr/bin/dnf reinstall -y /opt/nvidia/nvidia-linux-grid-580-580.159.03-1.x86_64.rpm | logger -t ecmwf-gpus'
 ExecStartPost=/bin/systemctl disable ecmwf-gpus.service
 RemainAfterExit=true
 

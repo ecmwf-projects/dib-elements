@@ -26,4 +26,4 @@ set -o pipefail
 
 sudo mkdir $TARGET_ROOT/opt/nvidia
 cd $TARGET_ROOT/opt/nvidia
-sudo curl -O https://nexus.ecmwf.int/repository/EWC-Common/nvidia-linux-grid-570-570.124.06-1.x86_64.rpm
+sudo curl -O https://nexus.ecmwf.int/repository/EWC-Common/nvidia-linux-grid-580-580.159.03-1.x86_64.rpm
