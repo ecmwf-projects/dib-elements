@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (c) 2026 ECMWF 
+# Copyright (c) 2026 ECMWF
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,53 @@ if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
     set -x
 fi
 set -eu
-set -o pipefail 
+set -o pipefail
 
-apt-get purge -y cloud-utils software-properties-common apt-transport-https grub-efi-amd64 systemd-timesyncd
+# --- 1. Remove packages we do not want in the image (all releases) ----------
+#
+# Only purge packages dpkg knows about (installed or left in 'rc' state), so the
+# build does not fail on a release where one of them does not exist.
+unwanted=(
+    cloud-utils
+    software-properties-common
+    apt-transport-https
+    grub-efi-amd64
+    systemd-timesyncd
+)
+
+to_purge=()
+for pkg in "${unwanted[@]}"; do
+    if dpkg-query -W "$pkg" >/dev/null 2>&1; then
+        to_purge+=("$pkg")
+    fi
+done
+
+if [ "${#to_purge[@]}" -gt 0 ]; then
+    apt-get purge -y "${to_purge[@]}"
+fi
 apt-get autoremove -y --purge
+
+# --- 2. Apply systemd presets on Ubuntu 26.04 (resolute) only ----------------
+#
+# On resolute the build does not enable systemd-networkd (and others), and the
+# first-boot preset fails because root is still read-only at that point.
+# Applying the presets here creates the enable links in /etc.
+
+release="${DIB_RELEASE:-}"
+if [ -z "$release" ] && [ -r /etc/os-release ]; then
+    release="$(. /etc/os-release && echo "${VERSION_CODENAME:-}")"
+fi
+
+if [ "$release" = "resolute" ]; then
+    echo "resolute detected, applying systemd presets (enable-only)"
+    systemctl preset-all --preset-mode=enable-only
+
+    # Fail the build if networking would still not start on first boot.
+    if ! systemctl is-enabled --quiet systemd-networkd.service; then
+        echo "ERROR: systemd-networkd is still not enabled" >&2
+        exit 1
+    fi
+else
+    echo "release '${release:-unknown}' is not resolute, skipping systemd presets"
+fi
+
